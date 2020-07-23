@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <!-- setting primary language -->
+  <head>
+    <meta charset="utf-8" />
+    <!--This element simply specifies the document's character encoding  -->
+    <!-- Adding an author and description -->
+    <meta name="developer" content="Damon Brooks" />
+    <meta
+      name="description"
+      content="This info here can be helpful for search engines (SEO)"
+    />
+    <!-- facebook small icon meta info og:title, og:description and goes on... -->
+    <meta
+      property="og:image"
+      content="https://en.wikipedia.org/wiki/Batman#/media/File:Batman_Detective_Comics_Vol_2_1.png"
+    />
+    <meta name="description" content="This is for google searches" />
+    <meta property="og:title" content="html learning center" />
+    <!-- small icon on browser -->
+    <link rel="icon" sizes="114x114" href="multi/spidey.png" />
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="multi/spidey.png" />
+    <!-- for the css file -->
+    <link rel="stylesheet" href="mystyle.css" />
+    <title>HTML-head</title>
+  </head>
+  <body>
+    <h1>Heading</h1>
+    <h6>heading6</h6>
+    <p>This is <em>emphasis</em> <strong>strong!</strong> page</p>
+    <pre>
+      yes
+      no
+      this is a preformatted text!
+    </pre>
+    <ul id="unorderedList">
+      <li>milk</li>
+      <li>eggs</li>
+      <li>bread</li>
+      <li>hummus</li>
+    </ul>
+
+    <ol id="orderedList">
+      <li><i>italic</i></li>
+      <li><b>bold</b></li>
+      <li><u>underlined</u></li>
+      <li>
+        This is a hyperlink to
+        <!-- in href= "html2.html" same dir
+                  href="dir/html.html" diff dir
+                  href="../gobackanddiff/html.html"
+          -->
+        <!--opens up in a new tab target="_blank" -->
+        <a
+          href="https://www.mozilla.org/en-US/"
+          target="_blank"
+          title="The best place to find more information about Mozilla's
+             mission and how to contribute"
+          >the Mozilla homepage</a
+        >.
+      </li>
+      <li>
+        <a
+          href="https://download.mozilla.org/?product=firefox-39.0-SSL&os=win&lang=en-US"
+          download="firefox-39-installer.exe"
+        >
+          Download Firefox 39 for Windows
+        </a>
+      </li>
+      <li>
+        <a href="mailto:nowhere@mozilla.org">Send email to nowhere</a>
+      </li>
+      <li>
+        <a
+          href="mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email &amp;body=The%20body%20of%20the%20email"
+        >
+          Send mail with cc, bcc, subject and body
+        </a>
+      </li>
+    </ol>
+    <!-- Description Lists terms and definitions -->
+    <dl>
+      <dt>description title</dt>
+      <dd>description term</dd>
+      <dt>blockquote</dt>
+      <dd>
+        <blockquote
+          cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"
+        >
+          <p>
+            The
+            <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
+            <em>HTML Block Quotation Element</em>) indicates that the enclosed
+            text is an extended quotation.
+          </p>
+        </blockquote>
+      </dd>
+      <dt>inline quote</dt>
+      <dd>
+        inline quote— <code>&lt;q&gt;</code
+        ><q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+          This text is inside quotation marks</q
+        >
+      </dd>
+    </dl>
+    <cite>(cite)title of the work </cite><br />
+    <bdo dir="rtl">Right to left text</bdo>
+    <p>
+      Abbreviations <abbr title="Hypertext Markup Language">HTML</abbr> for
+      example
+    </p>
+
+    <address>
+      <p>Address, Manchester by the sea, USA</p>
+    </address>
+
+    <p><mark>Superscript:(marked)</mark> 25<sup>th</sup> of May 2011.</p>
+    <p>Subscript: C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.</p>
+    <!-- date and time -->
+    <time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time>
+    <!-- javascript external goes here at the end of body part-->
+    <script src="my-js-file.js"></script>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <!-- setting primary language -->
+  <head>
+    <meta charset="utf-8" />
+    <!--This element simply specifies the document's character encoding  -->
+    <!-- Adding an author and description -->
+    <meta name="developer" content="Damon Brooks" />
+    <meta
+      name="description"
+      content="This info here can be helpful for search engines (SEO)"
+    />
+    <!-- facebook small icon meta info og:title, og:description and goes on... -->
+    <meta
+      property="og:image"
+      content="https://en.wikipedia.org/wiki/Batman#/media/File:Batman_Detective_Comics_Vol_2_1.png"
+    />
+    <!-- small icon on browser -->
+    <link rel="icon" sizes="114x114" href="small.png" />
+    <!-- for the css file -->
+    <link rel="stylesheet" href="mystyle.css" />
+    <title>tables and forms</title>
+  </head>
+  <body>
+    <!--table -->
+    <table style="border: 1px solid black;">
+      <caption>
+        Statistics
+      </caption>
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col style="background-color: yellow;" span="1" />
+        <col style="background-color: red;" span="1" />
+      </colgroup>
+      <thead style="background-color: black; color: white;">
+        <th>Players</th>
+        <th>Team</th>
+        <th>Matches</th>
+        <th>Assists</th>
+        <th>Yellow Cards</th>
+        <th>Red Cards</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ricardo Quaresma</td>
+          <td>Besiktas</td>
+          <td>12</td>
+          <td>6</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Oguzhan Ozyakup</td>
+          <td>Besiktas</td>
+          <td>10</td>
+          <td>4</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Tolgay Arslan</td>
+          <td>Besiktas</td>
+          <td>6</td>
+          <td>4</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>28</td>
+          <td>14</td>
+          <td>4</td>
+          <td>3</td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr />
+    <!-- forms -->
+    <form action="where the data should be send" method="GET or POST">
+      <br />
+      <!--name-->
+      <div>
+        <!-- label is the value of id -->
+        <label for="name">Name: </label><br />
+        <!-- text input -->
+        <!-- min-max values are set -->
+        <input
+          type="text"
+          id="name"
+          name="user_name"
+          required
+          minlength="3"
+          maxlength="15"
+        />
+      </div>
+      <!--Email-->
+      <div>
+        <label for="mail">E-mail:</label><br />
+        <!-- required!! -->
+        <input type="email" id="mail" name="user_mail" required />
+      </div>
+      <!--Password-->
+      <div>
+        <label for="password">Password</label><br />
+        <!-- Matching a pattern -->
+        <input
+          type="password"
+          id="password"
+          name="user_password"
+          value="psw"
+          pattern="[a-zA-Z0-9]+"
+        />
+      </div>
+      <!--submit button-->
+      <div>
+        <br />
+        <!-- type submit creates a submit button -->
+        <!-- When a <form> is submitted, the name of the fields that accept input and the value of those fields are sent as name=value pairs.  -->
+        <button type="submit">Submit</button>
+      </div>
+
+      <br />
+      <!--number input-->
+      <div>
+        <label for="amount">Number input</label>
+        <input
+          id="amount"
+          name="amount"
+          type="number"
+          step="1"
+          required
+          min="1"
+          max="10"
+        />
+      </div>
+      <br />
+      <!-- range input-->
+      <div>
+        <label for="numRange">Range!!</label>
+        <br />
+        <span>Less</span>
+        <input
+          id="numRange"
+          name="numRange"
+          type="range"
+          min="0"
+          max="5"
+          step="0.5"
+        />
+        <span>More</span>
+      </div>
+      <br />
+      <!--checkbox input -->
+      <div>
+        <label for="checkbox1">checkbox1</label>
+        <input type="checkbox" id="checkbox1" name="checkboxed" />
+        <label for="checkbox2">checkbox2</label>
+        <input type="checkbox" id="checkbox2" name="checkboxed" />
+      </div>
+      <br />
+      <!--textarea -->
+      <div>
+        <label for="msg">Message:</label>
+        <textarea id="msg" name="user_message"></textarea>
+      </div>
+
+      <br />
+      <!--radio input-->
+      <div>
+        <label for="good-player">
+          <input type="radio" id="good-player" name="good-bad-player" checked />
+          Good Player
+        </label>
+        <label for="bad-player">
+          <input type="radio" id="bad-player" name="good-bad-player" /> Bad
+          Player
+        </label>
+      </div>
+    </form>
+    <hr />
+    <!-- dropdown list-->
+    <p>Pick a day</p>
+    <select name="days">
+      <option value="monday">Monday</option>
+      <option value="tuesday">Tuesday</option>
+      <option value="wednesday">Wednesday</option>
+      <option value="thursday">Thursday</option>
+      <option value="friday">Friday</option>
+    </select>
+    <!--datalist input-->
+    <p>pick a browser(datalist)</p>
+    <form action="/action_page.php">
+      <input list="browsers" />
+      <datalist id="browsers">
+        <option value="Internet Explorer"> </option>
+        <option value="Firefox"> </option>
+        <option value="Chrome"> </option>
+        <option value="Opera"> </option>
+        <option value="Safari"> </option>
+      </datalist>
+    </form>
+  </body>
+</html>

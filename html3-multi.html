@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <!-- setting primary language -->
+  <head>
+    <meta charset="utf-8" />
+    <!--This element simply specifies the document's character encoding  -->
+    <!-- Adding an author and description -->
+    <meta name="developer" content="Damon Brooks" />
+    <meta
+      name="description"
+      content="This info here can be helpful for search engines (SEO)"
+    />
+    <!-- facebook small icon meta info og:title, og:description and goes on... -->
+    <meta
+      property="og:image"
+      content="https://en.wikipedia.org/wiki/Batman#/media/File:Batman_Detective_Comics_Vol_2_1.png"
+    />
+    <!-- small icon on browser -->
+    <link rel="icon" sizes="114x114" href="small.png" />
+    <!-- for the css file -->
+    <link rel="stylesheet" href="mystyle.css" />
+    <title>Multimedia</title>
+  </head>
+  <body>
+    <h2>Images</h2>
+    <img
+      src="multi/spidey.png"
+      alt="spiderman image"
+      title="Spidey"
+      height="300px"
+      width="300px"
+      usemap="#dotMap"
+    />
+    <hr />
+    <!-- link from only a part of image -->
+    <map name="dotMap">
+      <!-- coords = vertical, horizontal,radius-->
+      <area
+        shape="circle"
+        coords="150,150,50"
+        alt="circle"
+        href="https://www.yahoo.com"
+      />
+    </map>
+
+    <h2>figure</h2>
+    <figure>
+      <img src="multi/batman.png" alt="batman standing" height="400px" />
+      <figcaption>Batman</figcaption>
+    </figure>
+    <hr />
+
+    <h2>Video</h2>
+    <video src="multi/spidey.mp4" controls>
+      <p>
+        Your browser doesn't support HTML5 video. Here is a
+        <a href="img/spidey.mp4">link to the video</a> instead.
+      </p>
+    </video>
+    <hr />
+
+    <h2>Video autoplay muted</h2>
+    <video controls width="200px" autoplay loop muted>
+      <source src="multi/spidey.mp4" type="video/mp4" />
+      <track kind="subtitles" src="multi/subtitle.vtt" srclang="en" />
+    </video>
+    <hr />
+
+    <h2>audio</h2>
+    <audio controls>
+      <source src="multi/spideya.mp3" type="audio/mp3" />
+    </audio>
+    <hr />
+
+    <h2>Iframe</h2>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/ZqF43uD3kKQ"
+      frameborder="0"
+      gesture="media"
+      allow="encrypted-media"
+      allowfullscreen
+    ></iframe>
+    <hr />
+
+    <svg
+      version="1.1"
+      basprofile="full"
+      width="400"
+      height="200"
+      xlmns="http://www.w3.org/2000/svg"
+    >
+      <rect width="400px" height="200px" fill="black" />
+      <circle cx="200" cy="100" r="50" fill="yellow" />
+    </svg>
+
+    <embed
+      type="video/mp4"
+      src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.mp4"
+      width="250"
+      height="200"
+    />
+
+    <!-- responsive Images
+    <img srcset="img-320w.jpg 320w,
+                 img-480w.jpg 480w,
+                 img-800w.jpg 800w"
+         sizes="(max-width: 320px) 280px,
+                (max-width: 480px) 440px,
+                800px"
+         src="img-800w.jpg" alt="description">
+
+    <img srcset="img-320w.jpg,  ***you should give a width to img in CSS***
+             img-480w.jpg 1.5x,
+             img-640w.jpg 2x"
+     src="img-640w.jpg" alt="description">
+
+     <picture>
+       <source media="(max-width: 799px)" srcset="img480w.jpg">
+       <source media="(min-width: 800px)" srcset="img800w.jpg">
+       <img src="img800w.jpg" alt="description">
+     </picture>
+   -->
+  </body>
+</html>
