@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS Box and color</title>
+  <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+  <style>
+    .background h2 {
+      background-color: yellow;
+      background-image: url(https://mdn.mozillademos.org/files/13026/fire-ball-icon.png);
+      background-repeat: no-repeat;
+      background-position: 99% center;
+      background-size: 20px 20px;
+      padding: 10px;
+    }
+    .background p {
+      font-family: cursive;
+      font-weight: 700;
+      padding: 10px;
+      background: url(https://mdn.mozillademos.org/files/13026/fire-ball-icon.png) no-repeat 99% center,
+                  linear-gradient(to bottom, yellow, #dddd00 50%, orange);
+    }
+    .border {
+      width: 400px;
+      padding:20px;
+      margin: 20px auto;
+      line-height: 3;
+      background-color: Coral;
+      text-align: center;
+      text-shadow: 2px 2px 2px red;
+      font-size: 30px;
+      border: 20px solid black;
+      background-clip: padding-box;
+      border-image-source: url(https://mdn.mozillademos.org/files/13060/border-image.png);
+      border-image-slice: 40;
+      border-image-repeat: round;
+      /*border-image: url(border-image.png) 40 round;*/
+    }
+
+    /*table*/
+    caption {
+      font-family: 'Rock Salt', cursive;
+      padding: 20px;
+      font-style: italic;
+      caption-side: bottom;
+      color:#666;
+      text-align: right;
+      letter-spacing: 1px;
+    }
+    table {
+      table-layout: fixed;
+      width:100%;
+      border-collapse: collapse;
+      border: 3px solid purple;
+    }
+    thead th:nth-child(1) {
+      width: 30%;
+    }
+    thead th:nth-child(2) {
+      width: 20%
+    }
+    thead th:nth-child(3) {
+      width: 15%;
+    }
+    thead th:nth-child(4) {
+      width: 35%;
+    }
+    th, td {
+      padding: 20px;
+    }
+    /*typography*/
+    html {
+      font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    }
+    thead th, tfoot th {
+      font-family: 'Rock Salt', cursive;
+    }
+    th {
+      letter-spacing: 2px;
+    }
+    td {
+      letter-spacing: 1px;
+    }
+    tbody td {
+      text-align: center;
+    }
+    tfoot th {
+      text-align: right;
+    }
+    /*graphics*/
+    thead, tfoot {
+      background: url(media/leopardskin.jpg);
+      color: white;
+      text-shadow: 1px 1px 1px black;
+    }
+    thead th, tfoot th, tfoot td {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+      border: 3px solid purple;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #ff33cc;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #e495e4;
+    }
+    tbody tr {
+      background-image: url(media/noise.jpg);
+    }
+    table {
+      background-color: #ff33cc;
+    }
+    .grad {
+      background: red;
+      /*for safari*/
+      background: -webkit-linear-gradient(left, red ,orange, yellow, green, blue, purple);
+      /*for Opera*/
+      background: -o-linear-gradient(left, red ,orange, yellow, green, blue, purple);
+      /*for Firefox*/
+      background: -moz-linear-gradient(left, red ,orange, yellow, green, blue, purple);
+      /*Standard syntax*/
+      background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+      height:100px;
+      width: 80%;
+      /*box-shadow => x, y, blur, color*/
+      box-shadow: 50px 10px 5px grey;
+    }
+    .grad2 {
+      margin-top: 30px;
+      background: red; /* For browsers that do not support gradients */
+      /* Safari 5.1-6.0 */
+      background: -webkit-radial-gradient(red 10%, yellow 20%, green 50%);
+      /* For Opera 11.6 to 12.0 */
+      background: -o-radial-gradient(red 10%, yellow 20%, green 50%);
+      /* For Firefox 3.6 to 15 */
+      background: -moz-radial-gradient(red 10%, yellow 20%, green 50%);
+      /* Standard syntax (must be last) */
+      background: radial-gradient(red 10%, yellow 20%, green 50%);
+      height:100px;
+      width: auto;
+    }
+
+    .wrapper * {
+      padding: 20px;
+      font-size: 20px;
+      border: 20px solid rgba(0,0,0,0.5);
+    }
+    .headlines {
+      margin-left: 20px;
+    }
+    /* specific boxes */
+    .wrapper header, .wrapper footer {
+      background-color: blue;
+      color: white;
+    }
+    .wrapper header {
+      width: 400px;
+      height: 200px;
+      box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.7);
+    }
+    .wrapper main {
+      background-color: yellow;
+      margin-bottom: 20px;
+      margin: 30px;
+      padding: 30px;
+      border-width: 40px;
+      box-shadow: inset 7px 7px 6px rgba(0, 0, 0, 0.7),/*upper shadow*/
+                  inset -7px -7px 6px rgba(0, 0, 0, 0.7);/*bottom shadow*/
+    }
+    .wrapper footer {
+      margin-top: 15px;/*has no effect because main already has margin bottom (Margin Collapsing)*/
+      width: 80%;
+    }
+
+    #box1, #box2 {
+      margin-right: 30px;
+    }
+    #box1 p {
+      width: 200px;
+      height: 50px;
+      padding: 1em 1em 1em 1em;
+      border: 1px solid black;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .autoscroll { overflow: auto; }
+    .clipped { overflow: hidden; }
+    .default { overflow: visible; }
+
+    #box2 div {
+      width  : 60px;
+      height : 60px;
+      border : 20px solid rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      margin : 20px 10px;
+      display: inline-block;
+
+      background-size    : 140px;
+      background-position: center;
+      background-image   : url('https://mdn.mozillademos.org/files/11947/ff-logo.png');
+      background-color   : gold;
+    }
+
+    .default     { background-clip: border-box;  }
+    .padding-box { background-clip: padding-box; }
+    .content-box { background-clip: content-box; }
+    .text-box {
+      /*when text added to div it moves down vertical-align:top disables that*/
+      vertical-align: top;
+      font-size: 32px;
+      background-clip: text;
+      color: transparent;*/
+    }
+
+    /*boxSizing*/
+    .boxSizing {
+      font-family: fantasy;
+      background: #ccc;
+      margin-top: 30px;
+      padding: 20px 0;
+    }
+    .boxSizing #boxOne, .boxSizing #boxTwo {
+      background-color: darkRed;
+      width: 400px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      margin: 20px auto;
+    }
+    .boxSizing #boxTwo {
+      box-sizing: border-box;
+    }
+    .filters > p {
+      margin: 1rem auto;
+      padding: 20px;
+      width: 100px;
+      border: 5px dashed red;
+      text-align: center;
+    }
+    #filter {
+      -webkit-filter: drop-shadow(5px 5px 1px rgba(0,0,0,0.7));
+      filter: drop-shadow(5px 5px 1px rgba(0,0,0,0.7));
+    }
+    #box-shadow {
+      box-shadow: 5px 5px 1px rgba(0,0,0,0.7);
+    }
+
+    .blend {
+      width: 250px;
+      height: 130px;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+      background: url(https://mdn.mozillademos.org/files/13090/colorful-heart.png) no-repeat center 20px;
+      background-color: green;
+    }
+
+    .multiply {
+      background-blend-mode: multiply;
+    }
+
+    .back-clip {
+      width: 250px;
+      height: 250px;
+      text-align: center;
+      line-height: 250px;
+      font-size: 75px;
+      display: inline-block;
+      background: url(https://mdn.mozillademos.org/files/13090/colorful-heart.png) no-repeat center;
+    }
+    .text-clip {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <h2>Headline</h2>
+    <p>Exiciting box!</p>
+  </div>
+
+  <div class="border">
+    <p>Border Image</p>
+  </div>
+
+  <div class="table">
+    <table>
+      <caption>A summary of the UK's most famous punk bands</caption>
+      <thead>
+        <tr>
+          <th scope="col">Band</th>
+          <th scope="col">Year formed</th>
+          <th scope="col">No. of Albums</th>
+          <th scope="col">Most famous song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Buzzcocks</th>
+          <td>1976</td>
+          <td>9</td>
+          <td>Ever fallen in love (with someone you shouldn't've)</td>
+        </tr>
+        <tr>
+          <th scope="row">The Clash</th>
+          <td>1976</td>
+          <td>6</td>
+          <td>London Calling</td>
+        </tr>
+        <tr>
+          <th scope="row">The Stranglers</th>
+          <td>1974</td>
+          <td>17</td>
+          <td>No More Heroes</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Total albums</th>
+          <td colspan="2">77</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="grad">
+  </div>
+
+  <div class="grad2">
+  </div>
+
+  <div class="wrapper">
+    <header>Header</header>
+    <main>Main</main>
+    <footer>Footer</footer>
+  </div>
+
+  <div class="boxes">
+    <h2 class="headlines">Overflow</h2>
+    <div id="box1">
+      <p class="autoscroll">
+        overflow auto, consectetur adipiscing elit.
+   Mauris tempus turpis id ante mollis dignissim.
+      </p>
+      <p class="clipped">
+        overflow hidden, consectetur adipiscing elit.
+   Mauris tempus turpis id ante mollis dignissim. Nam sed
+   dolor non tortor lacinia lobortis id dapibus nunc.
+      </p>
+      <p class="default">
+        overflow visible, consectetur adipiscing elit.
+   Mauris tempus turpis id ante mollis dignissim. Nam sed
+   dolor non tortor lacinia lobortis id dapibus nunc.
+      </p>
+    </div>
+
+    <div id="box2">
+      <h2 class="headlines">Background-clip</h2>
+      <div class="default"></div>
+      <div class="padding-box"></div>
+      <div class="content-box"></div>
+      <div class="text-box">text</div>
+    </div>
+  </div>
+
+  <div class="boxSizing">
+    <div id="boxOne"></div>
+    <h3 style="text-align:center;">Box Sizing</h3>
+    <div id="boxTwo"></div> <!-- border-box -->
+
+  </div>
+
+  <div class="filters">
+    <p id="filter">Filter</p>
+    <p id="box-shadow">Box Shadow</p>
+  </div>
+  <p>background-blend</p>
+  <div class="blend">
+  </div>
+  <div class="blend multiply">
+  </div>
+
+  <p>background-clip</p>
+  <div>
+    <h2 class="back-clip">WOW</h2>
+    <h2 class="text-clip back-clip">WOW</h2>
+  </div>
+
+
+  <script>
+    var one = document.querySelector("#boxOne");
+    var two = document.querySelector("#boxTwo");
+
+    function outputWH(box) {
+      var width = box.offsetWidth;
+      var height = box.offsetHeight;
+
+      box.textContent = 'Width: ' + width + 'px, Height: ' + height + 'px.';
+    }
+
+    outputWH(one);
+    outputWH(two);
+
+  </script>
+</body>
+</html>

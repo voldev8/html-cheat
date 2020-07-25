@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css selectors guide</title>
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- internal stylesheet -->
+    <style>
+    </style>
+    <!-- -->
+  </head>
+  <body>
+    <header>
+      <h2 class="heading">heading</h2>
+      <nav class="navi">
+        <ul class="items">
+          <li id="item-1">
+            <a href="https://www.google.com" id="link-1">google</a>
+            <ul>
+              <li id="item-1a"><a href="https://about.google/intl/en/" id="link-1a">about google</a></li>
+              <li id="item-1b"><a href="https://developers.google.com/" id="link-1b">devs google</a></li>
+            </ul>
+          </li>
+          <li id="item-2">
+            <a href="#" id="link-2">link 2</a>
+          </li>
+          <li id="item-3">
+            <a href="#" id="link-3">.items li:nth-child(3) a => color:red</a>
+          </li>
+          <li id="item-4">
+            <a href="#" id="link-4">link 4</a>
+          </li>
+          <li id="item-5">
+            <a href="https://google.png" id="link-5">.items > li:nth-last-child(1) a => color: green</a>
+          </li>
+        </ul>
+      </nav>
+      <p>(.navi + p) selector</p>
+      <p>header p:nth-of-type(2)::first-letter</p>
+    </header>
+    <div class="container">
+      <div class="newClass">
+        <div id="newId">
+          <p>some more and more text</p>
+          <ul class="item-list">
+            <li data-quantity="1kg" data-vegetable>[data-vegetable] => uppercase</li>
+            <li data-quantity="700g" data-vegetable="not spicy like chili">Red Peppers</li>
+            <li data-quantity="10 ml" data-vegetable="liquid">li[data-vegetable="liquid"]</li>
+            <li data-quantity="25 ml" data-vegetable="liquid">li[data-vegetable="liquid"]</li>
+            <li data-quantity="1kg" data-meat>.item-list:not([data-vegetable]) => lowercase</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="bur">
+      <div class="burger"></div>
+    </div>
+  </body>
+</html>

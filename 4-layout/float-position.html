@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS LAYOUT-float&table&position</title>
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      margin: 0;
+    }
+
+    /*float*/
+    #first-col {
+      width: 33%;
+      float: left;
+    }
+    #second-col {
+      width: 33%;
+      float: left;
+    }
+    #third-col {
+      width: 33%;
+      float: right;
+    }
+    .floating-box {
+      height: 30px;
+      width: 30px;
+      border-radius: 2px;
+      background-color: #cf455c;
+      margin: 3px;
+      float:left;
+    }
+    /*tables*/
+    #formdiv {
+      clear: both;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+    form {
+      padding-top: 30px;
+      clear: both;
+      display: table;
+      margin: 0 auto;
+    }
+    form div {
+      display: table-row;
+    }
+    form label, form input {
+      display: table-cell;
+      margin-bottom: 10px;
+    }
+    form label {
+      width: 200px;
+      padding-right: 5%;
+      text-align: right;
+    }
+    form input {
+      width: 300px;
+    }
+    form p {
+      display: table-caption;
+      caption-side: bottom;
+      width: 300px;
+      color: #999;
+      font-style: italic;
+    }
+    .position {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .position h1 {
+      text-align: center;
+    }
+    .positioning {
+      background-color: #444444;
+      color: #fff;
+      width: 800px;
+      margin: 20px;
+      padding: 20px;
+    }
+    .positioning span {
+      font-weight: 700;
+    }
+    #position-1 {
+      /*sticky*/
+      position: sticky;
+      top: 30px; /*required*/
+      z-index: 2;
+    }
+    #position-2 {
+      /*relative to its original position*/
+      position: relative;
+      top: 30px;
+      left: 20px;
+    }
+    #position-3 {
+      /*out of context*/
+      position: absolute;
+      top: 1300px;
+    }
+    #position-4 {
+      /*stays at the same position even when scrolling*/
+      position: fixed;
+      top: 180px;
+    }
+    #position-5 {
+      /*default*/
+      position: static;
+    }
+    #empty {
+      height: 1000px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>3 column layout exampe</h1>
+
+    <div id="first-col">
+      <h2>First column</h2>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate.</p>
+    </div>
+
+    <div id="second-col">
+      <h2>Second column</h2>
+      <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+      ultrices. Phasellus turpis est, posuere sit amet dapibus ut.</p>
+    </div>
+
+    <div id="third-col">
+      <h2>Third column</h2>
+      <div class="floating-box"></div>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+      praesentium voluptatum deleniti atque corrupti quos dolores et quas
+      molestias excepturi sint occaecati cupiditate non provident, similique
+      sunt in culpa qui officia deserunt mollitia animi, id est laborum et
+      dolorum fuga voluptatum deleniti atque corrupti quos dolores et quas
+      molestias excepturi sint occaecati cupiditate non provident, similique
+      sunt in culpa qui officia deserunt mollitia animi, id est laborum et
+      dolorum fuga</p>
+    </div>
+  </div>
+
+  <div id="formdiv">
+    <form>
+      <p>There is some paragraph..</p>
+      <div>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname">
+      </div>
+      <div>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname">
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age">
+      </div>
+    </form>
+  </div>
+
+  <div class="position">
+    <h1>Position</h1>
+    <div class="positioning" id="position-1"><span>Sticky</span>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    <div class="positioning" id="position-2"><span>Relative</span>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    <div class="positioning" id="position-3"><span>Absolute</span>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    <div class="positioning" id="position-4"><span>Fixed</span>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      <div class="positioning" id="position-5"><span>Static</span>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  </div>
+  <div id="empty"></div>
+</body>
+</html>

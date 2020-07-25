@@ -1,0 +1,112 @@
+/*every single element on page */
+* {
+  box-sizing: border-box;
+  font-size: 24px;
+}
+/*id selector*/
+#newId {
+  background-color: #7fe7cc;
+  height: 40px;
+  padding-top: 10px;
+}
+/*class selector*/
+.newClass {
+  background-color: #dfe38e;
+  height: 80px;
+}
+/*descendant selector*/
+header h2 {
+  padding: 2px;
+}
+/*type selector*/
+p {
+  font-family: fantasy;
+}
+/* :visited :link */
+#link-4:link {
+  color: #f17e7e;
+}
+#link-4:visited {
+  color: #efca8c;
+}
+/*adjacent selector (only the element that is immediately preceded by the former element)*/
+.navi + p {
+  font-size: 34px;
+}
+/*direct child*/
+.navi > ul {
+  border: 1px solid black; /* doesnt add another border to ul inside ul*/
+}
+/*sibling combinator*/
+.navi ~ p {
+  color :violet;/*this selects all siblings not just the first one like + */
+}
+/*attributes selector*/
+[data-vegetable] {
+  text-transform: uppercase;
+}
+/* not selector*/
+.item-list:not([data-vegetable]) {
+  text-transform: lowercase;
+}
+/*nth child*/
+.items li:nth-child(3) a {
+  color: red!important;
+}
+/*nth last child*/
+.items > li:nth-last-child(1) a {
+  color: green;
+}
+/*starts with*/
+a[href^="http"] {
+  background-color: #f17e7e;
+}
+/*contains*/
+a[href*="developers"] {
+  background-color: #3a9679;
+}
+/*ends with*/
+a[href$="png"] {
+  background-color: #f2c0ff;
+}
+/*custom attributes*/
+li[data-vegetable="liquid"] {
+  background-color: #f2c090;
+}
+/*first letter and nth of type*/
+header p:nth-of-type(2)::first-letter {
+  font-size: 40px;
+  color: #3a9679;
+}
+#bur {
+  margin-top: 200px;
+}
+
+.burger {
+  margin:  80px 60px;
+  background-color: black;
+  height: 4px;
+  width: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.burger:hover {
+  background-color: red;
+}
+.burger::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  height: 4px;
+  width: 18px;
+  background-color: black;
+}
+.burger::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  height: 4px;
+  width: 18px;
+  background-color: black;
+}

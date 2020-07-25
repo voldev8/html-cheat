@@ -1,10 +1,12 @@
 ---
-title: Html
+title: Html-Css
 date: '2015-05-02'
 description: 'This is where everything starts'
 ---
 
 ## Table of Contents
+
+### HTML
 
 - [Basic page](#basic-page)
 - [Head](#head)
@@ -27,6 +29,16 @@ description: 'This is where everything starts'
 - [Forms](#forms)
 - [HTML5 Semantic](#html5-semantic)
 - [Additions](#additions)
+
+### CSS
+
+- [Selectors](#selectors)
+- [Box Model](#box-model)
+- [Display and Positioning](#display-and-positioning)
+- [Colors](#colors)
+- [Typography](#typography)
+- [Responsive Design](#responsive-design)
+- [Animation](#animation)
 
 ## Basic page
 
@@ -605,3 +617,544 @@ description: 'This is where everything starts'
 | **footer**  | info about author, copyright, links                 |
 
 ## Additions
+
+# CSS
+
+## Selectors
+
+```css
+/*every single element on page */
+* {
+  box-sizing: border-box;
+  font-size: 24px;
+}
+/*id selector*/
+#newId {
+  background-color: #7fe7cc;
+  height: 40px;
+  padding-top: 10px;
+}
+/*class selector*/
+.newClass {
+  background-color: #dfe38e;
+  height: 80px;
+}
+/*descendant selector*/
+header h2 {
+  padding: 2px;
+}
+/*type selector*/
+p {
+  font-family: fantasy;
+}
+/* :visited :link */
+#link-4:link {
+  color: #f17e7e;
+}
+#link-4:visited {
+  color: #efca8c;
+}
+/*adjacent selector (only the element that is immediately preceded by the former element)*/
+.navi + p {
+  font-size: 34px;
+}
+/*direct child*/
+.navi > ul {
+  border: 1px solid black; /* doesnt add another border to ul inside ul*/
+}
+/*sibling combinator*/
+.navi ~ p {
+  color: violet; /*this selects all siblings not just the first one like + */
+}
+/*attributes selector*/
+[data-vegetable] {
+  text-transform: uppercase;
+}
+/* not selector*/
+.item-list:not([data-vegetable]) {
+  text-transform: lowercase;
+}
+/*nth child*/
+.items li:nth-child(3) a {
+  color: red !important;
+}
+/*nth last child*/
+.items > li:nth-last-child(1) a {
+  color: green;
+}
+/*starts with*/
+a[href^='http'] {
+  background-color: #f17e7e;
+}
+/*contains*/
+a[href*='developers'] {
+  background-color: #3a9679;
+}
+/*ends with*/
+a[href$='png'] {
+  background-color: #f2c0ff;
+}
+/*custom attributes*/
+li[data-vegetable='liquid'] {
+  background-color: #f2c090;
+}
+/*first letter and nth of type*/
+header p:nth-of-type(2)::first-letter {
+  font-size: 40px;
+  color: #3a9679;
+}
+```
+
+### Box Model
+
+```css
+/* The vertical margins will collapse to 30 pixels
+  instead of adding to 50 pixels. */
+.block-one {
+  margin: 20px;
+}
+.block-two {
+  margin: 30px;
+}
+/* horizontally center element */
+div {
+  margin: auto;
+}
+/* add scroll if element is larger than container */
+.scroll {
+  overflow: scroll;
+}
+/* max-width, min-width */
+.column {
+  max-width: 100px;
+  width: 200px;
+}
+/* hides element without removing them */
+.invisible-elements {
+  visibility: hidden;
+}
+/* hides element removing them */
+.col {
+  display: none;
+}
+/* content-box does not include padding and margin */
+.col {
+  box-sizing: border-box;
+}
+```
+
+### Display and Positioning
+
+```css
+/* element2 will overlap element1 */
+.element1 {
+  z-index: 1;
+}
+.element2 {
+  z-index: 1000;
+}
+/* position can be static, relative,absolute, fixed */
+nav {
+  position: fixed;
+}
+/* takes the full width */
+.container1 {
+  display: block;
+}
+/* take as little space as possible */
+.container2 {
+  display: inline;
+}
+/* can appear next to each other */
+.container3 {
+  display: inline-block;
+}
+/* The content will float to the left side of the
+  container. */
+.left {
+  float: left;
+}
+/* The content will float to the right side of the
+  container. */
+.right {
+  float: right;
+}
+/*This determines that no other elements within the same
+  containing element are allowed to float on the left side
+  of this element.*/
+.element {
+  clear: left;
+}
+/*This determines that no other elements within the same
+  containing element are allowed to float on the right side
+  of this element.*/
+.element {
+  clear: right;
+}
+/*This determines that no elements within the same
+  containing element are allowed to float on either side of
+  this element.*/
+.element {
+  clear: both;
+}
+/*This determines that other elements within the same
+  containing element are allowed to float on both side of
+  this element.*/
+.element {
+  clear: none;
+}
+```
+
+### Colors
+
+```css
+h1 {
+  color: aqua;
+}
+.transparent {
+  color: transparent;
+}
+.red {
+  color: #ff0000;
+}
+.light-blue {
+  background-color: hsl(200, 70%, 50%);
+}
+.green {
+  color: rgb(0, 255, 0);
+}
+```
+
+### Typography
+
+```css
+/* Sets the text as bolder. */
+p {
+  font-weight: 700;
+}
+.text {
+  font-style: italic;
+}
+
+/* external fonts */
+@font-face {
+  font-family: 'Glegoo';
+  src: url('../fonts/Glegoo-Regular.ttf') format('truetype');
+}
+
+/* Here `Arial` is the fallback font for <p> tags */
+p {
+  font-family: 'Helvetica', 'Arial';
+}
+p {
+  line-height: 10px;
+}
+/* colorful text */
+.colorful-headline {
+  display: inline-block;
+  background-image: linear-gradient(to right, green, red);
+  background-clip: text;
+  color: transparent;
+}
+```
+
+### Responsive Design
+
+```css
+/* unit em */
+.nav-container {
+  font-size: 10px;
+}
+.nav-container span {
+  font-size: 1.5em; /* 10 x 1.5 = 15px */
+}
+/* percentage */
+.news-row {
+  height: 300px;
+  width: 500px;
+}
+.news-row .news-column {
+  height: 80%; /* 240px */
+  width: 50%; /* 250px */
+}
+/* view-height and view-width */
+.news-row {
+  height: 100vh;
+  width: 50vw;
+}
+
+/* ruleset for >= 600px media type screen, print, handheld */
+@media only screen and (min-width: 600px) {
+}
+/* CSS ruleset */
+@media only screen and (max-width: 480px) and (minresolution: 300dpi) {
+}
+/* ruleset for 480px - 600px */
+@media only screen and (min-width: 480px) and (max-width: 600px) {
+}
+```
+
+### Animation
+
+```css
+#translate {
+  width: 200px;
+  height: 100px;
+  background-color: grey;
+  border: 1px solid black;
+  border-radius: 4px;
+  /*translate x,y*/
+  -ms-transform: translate(200px, 100px); /*explorer*/
+  -webkit-transform: translate(200px, 100px); /*Safari*/
+  transform: translate(200px, 100px); /*standard*/
+}
+#rotate {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border: 1px solid black;
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+#scale {
+  margin: 50px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  /*scale x,y*/
+  -ms-transform: scale(0.5, 0.5); /*explorer*/
+  -webkit-transform: scale(0.5, 0.5); /*Safari*/
+  transform: scale(0.5, 1); /*standard*/
+}
+#matrix {
+  width: 300px;
+  height: 200px;
+  background-color: green;
+  border: 1px solid black;
+  -ms-transform: matrix(0.5, -0.3, 0.3, 1, 500, 0); /* IE 9 */
+  -webkit-transform: matrix(0.5, -0.3, 0.3, 1, 500, 0); /* Safari */
+  transform: matrix(
+    0.5,
+    -0.3,
+    0.3,
+    1,
+    500,
+    0
+  ); /*matrix(scaleX,skewY,skewX,scaleY,
+      translateX,translateY)*/
+  font-size: 30px;
+  text-align: center;
+}
+#transition {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  -webkit-transition: width 2s, height 3s linear;
+  transition: width 2s, height 3s linear;
+}
+#transition:hover {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}
+#anime1 p {
+  margin: 0;
+  padding: 0;
+}
+#anime1 {
+  margin-top: 30px;
+  margin-left: 30px;
+  background-color: #92b901;
+  padding: 8px 10px;
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 20px;
+  width: 48px;
+  -webkit-animation-name: anim1; /*Chrome,Safari,Opera*/
+  -webkit-animation-duration: 5s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-iteration-time: 4;
+  -webkit-animation-direction: alternate;
+  animation-name: anim1;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: 4;
+  animation-direction: alternate;
+  position: relative;
+}
+@-webkit-keyframes anim1 {
+  from {
+    background-color: #92b901;
+    left: 0px;
+  }
+  to {
+    background-color: #29c6d1;
+    left: 300px;
+  }
+}
+@keyframes anim1 {
+  from {
+    background-color: #92b901;
+    left: 0px;
+  }
+  to {
+    background-color: #29c6d1;
+    left: 300px;
+  }
+}
+#height {
+  height: 500px;
+}
+#anime2 {
+  margin-top: 30px;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: relative;
+  -webkit-animation: anim2 6s ease-out 2s infinite alternate;
+  animation: anim2 6s ease-out 2s infinite alternate;
+}
+#anime2:hover {
+  animation-play-state: paused;
+}
+@-webkit-keyframes anim2 {
+  0% {
+    background-color: green;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: blue;
+    left: 300px;
+    top: 0px;
+  }
+  50% {
+    background-color: orange;
+    left: 300px;
+    top: 300px;
+  }
+  75% {
+    background-color: yellow;
+    left: 0px;
+    top: 300px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes anim2 {
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: yellow;
+    left: 300px;
+    top: 0px;
+  }
+  50% {
+    background-color: blue;
+    left: 300px;
+    top: 300px;
+  }
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 300px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+#rainbowText {
+  animation-name: rainbowtext;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  position: absolute;
+}
+@keyframes rainbowtext {
+  0% {
+    color: red;
+    font-size: 20px;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: yellow;
+    font-size: 40px;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: blue;
+    font-size: 20px;
+  }
+}
+
+.imagefilter {
+  position: relative;
+  top: 120px;
+  border-top: 2px solid black;
+}
+.imagefilter img {
+  width: 33%;
+  float: left;
+  height: auto;
+}
+.blur {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+.brightness {
+  -webkit-filter: brightness(250%);
+  filter: brightness(250%);
+}
+.contrast {
+  -webkit-filter: contrast(180%);
+  filter: contrast(180%);
+}
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.huerotate {
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+}
+.invert {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+.opacity {
+  -webkit-filter: opacity(50%);
+  filter: opacity(50%);
+}
+.saturate {
+  -webkit-filter: saturate(7);
+  filter: saturate(7);
+}
+.sepia {
+  -webkit-filter: sepia(100%);
+  filter: sepia(100%);
+}
+.shadow {
+  -webkit-filter: drop-shadow(8px 8px 10px green);
+  filter: drop-shadow(8px 8px 10px green);
+}
+```

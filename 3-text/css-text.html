@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Text styles</title>
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Pacifico" rel="stylesheet">
+    <style>
+    /*fonts*/
+    @font-face {
+      font-family: "miFont";
+      src: url(fonts/RammettoOne-Regular.ttf);
+    }
+
+    /*texts*/
+      .texts h1 {
+        text-align: center;
+        font-family: 'Faster One', cursive;
+        /*
+          px => pixel
+          em => 1em is equal to font-size of parent element
+          rem => root size usually 1rem = 16px but can be changed
+        */
+        font-size: 42px;
+      }
+      .texts p {
+        color: SeaGreen;
+        font-family: Verdana;
+        font-size: 20px;
+        font-style: oblique;
+        font-weight: bolder; /*100-900*/
+        text-transform: capitalize;
+        text-align: justify;
+      }
+      .texts p::first-line {
+        line-height: 2;/*times*/
+        letter-spacing: 2px;
+        word-spacing: 4px;
+      }
+      #underline {
+        text-decoration: underline red wavy;
+      }
+      #textShadow {
+        text-shadow: 8px -4px 5px red,/*horizontal vertical blur radius color*/
+                     -8px 8px 4px black;
+      }
+
+      /*lists*/
+      .lists ol {
+        list-style-type: upper-roman;
+        list-style-position: inside; /*inside or outside */
+        font-family: "Pacifico", cursive;
+      }
+      .lists ul {
+        list-style-image: url(...);
+        /*list style shorthand list-style: square url(example.png) inside;*/
+      }
+
+      /*links*/
+      .links ul {
+        list-style: none;
+        line-height: 1.5;
+      }
+      .links #linkTwo:link {
+        color: red;
+        text-decoration: none;
+      }
+      .links #linkTwo:hover {
+        text-decoration: underline;
+        font-family: "miFont";
+      }
+      .links #linkOne:visited{
+        color: inherit;
+      }
+      .links #linkThree:focus {
+        border-bottom: 1px solid;
+        background: #BAE498;
+      }
+      a[href*="http"] {
+        background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+        background-size: 16px 16px;
+        padding-right: 30px;
+      }
+      .colorful-headline {
+        display: inline-block;
+        background-image: linear-gradient(to right, green, red);
+        background-clip: text;
+        color: transparent;
+      }
+
+      /*inheritance*/
+      #inher {
+        color: green;
+      }
+
+      .my-class-1 a {
+        color: inherit;
+      }
+
+      .my-class-2 a {
+        color: initial;
+      }
+
+      .my-class-3 a {
+        color: unset;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="texts">
+      <h1>Headline</h1>
+      <p>"Lorem ipsum dolor sit amet, <span id="underline">consectetur</span> adipiscing
+        elit, sed do <span id="textShadow">eiusmod tempor </span>
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum."</p>
+    </div>
+
+    <div class="lists">
+      <ol start="3" reversed>
+        <li>Jam</li>
+        <li>Plan</li>
+        <li>Plum</li>
+      </ol>
+
+      <dl>
+        <dt>Pide</dt>
+        <dd>Flatbread comes with minced meat on top</dd>
+        <dt>Doner</dt>
+        <dd>Thinly sliced beef lamb mix cooked slowly on a vertical machine</dd>
+      </dl>
+    </div>
+
+    <div class="links">
+      <ul>
+        <li><a href="https://#" id="linkOne">LinkOne</a></li>
+        <li><a href="https://#2" id="linkTwo">LinkTwo</a></li>
+        <li><a href="https://#3" id="linkThree">LinkThree</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="colorful-headline">Colorful headline</h2>
+    </div>
+    <ul id="inher">
+      <li>Default <a href="#">link</a> color</li>
+      <li class="my-class-1">Inherit the <a href="#">link</a> color</li>
+      <li class="my-class-2">Reset the <a href="#">link</a> color</li>
+      <li class="my-class-3">Unset the <a href="#">link</a> color</li>
+    </ul>
+  </body>
+</html>

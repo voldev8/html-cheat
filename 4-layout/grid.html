@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid</title>
+  <style>
+    body {
+      background-color: #444444;
+      font-size: 32px;
+      text-align: center;
+    }
+    .container {
+      display: grid;
+
+      /*you can name the lines*/
+      grid-template-columns: [row1-start] 300px [row1-end row2-start] 300px [row2-end row3-start] 1fr [row3-end];
+
+      /*we add another row without boxes*/
+      grid-template-rows: repeat(4, 300px);
+
+      /* Aligns grid items along the inline (row) axis */
+      /*in row-align pushes the items to the end of their area
+      start | end | center | stretch are other options */
+      justify-items: end;
+
+      /* Aligns grid items along the block (column) axis */
+      /*in column-align
+      start | end | center | stretch are other options*/
+      align-items: center;
+
+      /* place-items: <align-items> / <justify-items> */
+
+      /*with justify-content you can move the whole area in grid container in-row*/
+      justify-content: space-around;
+
+      /*with align-content you can move the whole area in grid container in-column*/
+      align-content: stretch;
+
+      /* place-contents: <align-contents> / <justify-contents> */
+      /* grid-auto-columns: 60px
+        If we have a column that is out of the declared grid container with auto we create
+        invisible grids in between;  lets say we have 2 grid columns but we place a column
+        at 4th column if we dont declare auto the 3rd columns width will be 0
+       */
+    }
+    .box {
+      height: 200px;
+      width: 200px;
+      margin: 2px;
+    }
+    #box1 {background-color: Gold;}
+    #box2 {
+      background-color: Teal;
+      height:300px;
+      width: 300px;
+    }
+    #box3 {background-color: MidnightBlue;}
+    #box4 {background-color: DarkSlateGrey;}
+    #box5 {background-color: Indigo;}
+    #box6 {background-color: Tomato;}
+    #box7 {background-color: Crimson;}
+
+    #box8 {
+      height: 80%;
+      width: 80%;
+      background-color: SaddleBrown;
+      /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
+      grid-area: 3/2/4/4;
+      /*aligns itself in-row*/
+      justify-self:start;
+      /*in-column*/
+      align-self: end;
+      /*place-self: <align-self> / <justify-self>*/
+    }
+
+    /*naming the areas*/
+    #box11 {
+      background-color: MidnightBlue;
+      grid-area: header;
+    }
+    #box12 {
+      background-color: DarkSlateGrey;
+      grid-area: main;
+    }
+    #box13 {
+      background-color: Indigo;
+      grid-area: sidebar;
+    }
+    #box14 {
+      background-color: Tomato;
+      grid-area: footer;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-template-rows: repeat(4, 100px);
+
+      /* '.' is empty space*/
+      grid-template-areas:
+        "header header header header"
+        "main main . sidebar"
+        "footer footer footer footer";
+
+      /*gaps are margins in-between areas*/
+      grid-column-gap: 10px;
+      grid-row-gap: 15px;
+      /* grid-gap: <grid-row-gap> <grid-column-gap>; */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
+    <div class="box" id="box3">3</div>
+    <div class="box" id="box4">4</div>
+    <div class="box" id="box5">5</div>
+    <div class="box" id="box6">6</div>
+    <div class="box" id="box7">7</div>
+    <div id="box8">8</div>
+  </div>
+  <div class="items">
+    <div id="box11"></div>
+    <div id="box12"></div>
+    <div id="box13"></div>
+    <div id="box14"></div>
+  </div>
+</body>
+</html>

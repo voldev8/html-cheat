@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FlexBox</title>
+  <style>
+    body {
+      background-color: #444444;
+      font-size: 32px;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: row-reverse;
+
+      /*alignment along the main axis*/
+      justify-content: space-around;
+
+      /*alignment along the cross axis*/
+      align-items: flex-end;
+
+      /*default nowrap*/
+      flex-wrap: wrap;
+
+    }
+    .box {
+      height: 200px;
+      width: 200px;
+      margin: 2px;
+    }
+    #box1 {background-color: Gold;}
+    #box2 {
+      background-color: Teal;
+      height:300px;
+      width: 300px;
+    }
+    #box3 {background-color: MidnightBlue;}
+    #box4 {background-color: DarkSlateGrey;}
+    #box5 {background-color: Indigo;}
+    #box6 {background-color: Tomato;}
+    #box7 {background-color: Crimson;}
+    #box8 {background-color: SaddleBrown;}
+
+    /*flex items*/
+    .items {
+      display: flex;
+    }
+    #box11 {
+      /*order*/
+      order: 2;
+      background-color: Gold;
+    }
+    #box12 {
+      background-color: Teal;
+      height:300px;
+      width: 300px;
+    }
+    #box13 {
+      background-color: MidnightBlue;
+    }
+    #box14 {
+      background-color: DarkSlateGrey;
+    }
+    #box15 {
+      /*align self*/
+      align-self: flex-end;
+
+      /*flex-grow when it gets over width it grows bigger default value is 1*/
+      flex-grow: 4;
+
+      /*flex-shrink reverse of grow*/
+      flex-shrink: 4;
+
+      background-color: Indigo;
+    }
+    #box16 {
+      background-color: Tomato;
+    }
+    #box17 {
+      background-color: Crimson;
+    }
+    #box18 {
+      background-color: SaddleBrown;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
+    <div class="box" id="box3">3</div>
+    <div class="box" id="box4">4</div>
+    <div class="box" id="box5">5</div>
+    <div class="box" id="box6">6</div>
+    <div class="box" id="box7">7</div>
+    <div class="box" id="box8">8</div>
+  </div>
+
+  <div class="items">
+    <div class="box" id="box11">11</div>
+    <div class="box" id="box12">12</div>
+    <div class="box" id="box13">13</div>
+    <div class="box" id="box14">14</div>
+    <div class="box" id="box15">15</div>
+    <div class="box" id="box16">16</div>
+    <div class="box" id="box17">17</div>
+    <div class="box" id="box18">18</div>
+  </div>
+
+</body>
+</html>
