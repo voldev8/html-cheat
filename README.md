@@ -39,6 +39,8 @@ description: 'This is where everything starts'
 - [Typography](#typography)
 - [Responsive Design](#responsive-design)
 - [Animation](#animation)
+- [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 ## Basic page
 
